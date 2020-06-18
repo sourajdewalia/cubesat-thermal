@@ -1,0 +1,3524 @@
+INFO|2020-06-18 11:02:11,388|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=100 --no-interface --dim=3 --mms=3 --hdx=0.85 --tf=100 --ts=0.3 --max-step=1
+INFO|2020-06-18 11:02:11,390|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:02:11,390|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:08:46,487|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=100 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=100 --ts=0.3 --max-step=1
+INFO|2020-06-18 11:08:46,488|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:08:46,488|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:08:46,694|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:08:47,267|compyle.ext_module|Compiling code at: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:09:08,090|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 169416
+  boundary_l: 30000
+  boundary_r: 30000
+  boundary_t: 30000
+  boundary_b: 30000
+  boundary_ft: 30000
+  boundary_bk: 30000
+  Total: 349416
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:08,090|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:08,090|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:08,091|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:08,103|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.00632)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.005372)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:08,103|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:09:08,104|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f643bb5aeb8>>]
+
+INFO|2020-06-18 11:09:08,104|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:09:08,104|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:09:08,104|pysph.solver.application|Setup took: 21.61977 secs
+INFO|2020-06-18 11:09:08,110|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.0914685
+INFO|2020-06-18 11:09:11,806|pysph.solver.solver|Writing output at time 0.0914685, iteration 1, dt = 0.0914685
+INFO|2020-06-18 11:09:11,983|pysph.solver.application|Run took: 3.87286 secs
+INFO|2020-06-18 11:09:50,390|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=100 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=100 --ts=0.3 --max-step=1
+INFO|2020-06-18 11:09:50,390|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:09:50,391|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:09:50,585|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:09:51,118|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:09:51,142|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 169416
+  boundary_l: 30000
+  boundary_r: 30000
+  boundary_t: 30000
+  boundary_b: 30000
+  boundary_ft: 30000
+  boundary_bk: 30000
+  Total: 349416
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:51,142|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:51,143|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:51,143|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:51,161|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.00632)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.005372)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:09:51,161|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:09:51,162|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fc695fb50f0>>]
+
+INFO|2020-06-18 11:09:51,162|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:09:51,163|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:09:51,163|pysph.solver.application|Setup took: 0.77589 secs
+INFO|2020-06-18 11:09:51,171|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.0914685
+INFO|2020-06-18 11:09:55,224|pysph.solver.solver|Writing output at time 0.0914685, iteration 1, dt = 0.0914685
+INFO|2020-06-18 11:09:55,444|pysph.solver.application|Run took: 4.27380 secs
+INFO|2020-06-18 11:11:12,159|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=100 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=100 --ts=0.3 --max-step=1
+INFO|2020-06-18 11:11:12,159|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:11:12,160|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:11:12,715|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:11:13,358|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:11:13,382|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 169416
+  boundary_l: 30000
+  boundary_r: 30000
+  boundary_t: 30000
+  boundary_b: 30000
+  boundary_ft: 30000
+  boundary_bk: 30000
+  Total: 349416
+----------------------------------------------------------------------
+INFO|2020-06-18 11:11:13,384|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:11:13,385|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:11:13,387|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:11:13,406|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.00632), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.00632)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.005372)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:11:13,409|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:11:13,410|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f9311373400>>]
+
+INFO|2020-06-18 11:11:13,414|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:11:13,414|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:11:13,417|pysph.solver.application|Setup took: 1.26144 secs
+INFO|2020-06-18 11:11:13,431|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.0914685
+INFO|2020-06-18 11:11:17,158|pysph.solver.solver|Writing output at time 0.0914685, iteration 1, dt = 0.0914685
+INFO|2020-06-18 11:11:17,348|pysph.solver.application|Run took: 3.91759 secs
+INFO|2020-06-18 11:12:56,657|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=50 --ts=0.3
+INFO|2020-06-18 11:12:56,658|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:12:56,658|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:12:56,765|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:12:57,310|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:12:57,335|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:12:57,335|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:12:57,338|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:12:57,338|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:12:57,355|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:12:57,356|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:12:57,356|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fda01a90128>>]
+
+INFO|2020-06-18 11:12:57,357|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:12:57,357|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:12:57,358|pysph.solver.application|Setup took: 0.70251 secs
+INFO|2020-06-18 11:12:57,365|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:13:40,599|pysph.solver.solver|Writing output at time 50, iteration 137, dt = 0.24112
+INFO|2020-06-18 11:13:40,656|pysph.solver.application|Run took: 43.29215 secs
+INFO|2020-06-18 11:14:26,138|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:14:26,139|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:14:26,139|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:14:26,201|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:14:26,735|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:14:26,757|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:26,759|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:26,761|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:26,763|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:26,781|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:26,783|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:14:26,784|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f92359900f0>>]
+
+INFO|2020-06-18 11:14:26,786|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:14:26,788|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:14:26,790|pysph.solver.application|Setup took: 0.65439 secs
+INFO|2020-06-18 11:14:26,802|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:14:35,761|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:14:35,810|pysph.solver.application|Run took: 9.00874 secs
+INFO|2020-06-18 11:14:52,168|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:14:52,169|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:14:52,169|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:14:52,232|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:14:52,762|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:14:52,787|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:52,804|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:52,804|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:52,804|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:52,843|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:14:52,845|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:14:52,846|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fac5e4220f0>>]
+
+INFO|2020-06-18 11:14:52,846|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:14:52,847|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:14:52,847|pysph.solver.application|Setup took: 0.68141 secs
+INFO|2020-06-18 11:14:52,873|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:15:01,823|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:15:01,876|pysph.solver.application|Run took: 9.00424 secs
+INFO|2020-06-18 11:17:53,091|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:17:53,092|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:17:53,092|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:17:53,153|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:17:53,682|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:17:53,704|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:17:53,706|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:17:53,706|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:17:53,707|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:17:53,725|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:17:53,725|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:17:53,726|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f31ee3def60>>]
+
+INFO|2020-06-18 11:17:53,726|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:17:53,726|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:17:53,727|pysph.solver.application|Setup took: 0.63802 secs
+INFO|2020-06-18 11:17:53,735|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:18:02,697|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:18:02,749|pysph.solver.application|Run took: 9.01396 secs
+INFO|2020-06-18 11:18:15,203|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:18:15,204|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:18:15,204|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:18:15,263|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:18:15,789|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:18:15,812|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:15,833|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:15,834|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:15,834|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:15,870|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:15,872|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:18:15,873|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f470a885198>>]
+
+INFO|2020-06-18 11:18:15,875|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:18:15,876|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:18:15,878|pysph.solver.application|Setup took: 0.67736 secs
+INFO|2020-06-18 11:18:15,893|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:18:24,849|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:18:24,897|pysph.solver.application|Run took: 9.00449 secs
+INFO|2020-06-18 11:18:34,704|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:18:34,704|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:18:34,705|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:18:34,765|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:18:35,313|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:18:35,337|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:35,338|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:35,338|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:35,338|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:35,354|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:18:35,357|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:18:35,359|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fa5b66a0f60>>]
+
+INFO|2020-06-18 11:18:35,361|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:18:35,363|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:18:35,365|pysph.solver.application|Setup took: 0.66376 secs
+INFO|2020-06-18 11:18:35,379|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:18:44,415|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:18:44,467|pysph.solver.application|Run took: 9.08821 secs
+INFO|2020-06-18 11:20:54,709|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:20:54,710|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:20:54,710|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:20:54,773|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:20:55,398|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:20:55,426|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:20:55,428|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:20:55,430|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:20:55,432|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:20:55,450|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:20:55,453|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:20:55,454|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f22d2e91160>>]
+
+INFO|2020-06-18 11:20:55,456|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:20:55,458|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:20:55,460|pysph.solver.application|Setup took: 0.75382 secs
+INFO|2020-06-18 11:20:55,475|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:21:04,668|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:21:04,722|pysph.solver.application|Run took: 9.24788 secs
+INFO|2020-06-18 11:23:00,589|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:23:00,590|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:23:00,591|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:23:00,653|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:23:01,183|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:23:01,206|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:23:01,207|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:23:01,207|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:23:01,207|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:23:01,225|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:23:01,225|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:23:01,226|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f70b6cb4be0>>]
+
+INFO|2020-06-18 11:23:01,226|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:23:01,226|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:23:01,227|pysph.solver.application|Setup took: 0.63974 secs
+INFO|2020-06-18 11:23:01,234|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:23:10,447|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:23:10,500|pysph.solver.application|Run took: 9.26623 secs
+INFO|2020-06-18 11:26:26,305|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:26:26,306|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:26:26,306|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:26:26,368|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:26:26,902|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:26:26,926|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:26:26,928|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:26:26,929|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:26:26,931|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:26:26,950|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:26:26,953|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:26:26,955|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fedf3995ba8>>]
+
+INFO|2020-06-18 11:26:26,956|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:26:26,958|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:26:26,959|pysph.solver.application|Setup took: 0.65659 secs
+INFO|2020-06-18 11:26:26,972|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:26:35,961|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:26:36,016|pysph.solver.application|Run took: 9.04437 secs
+INFO|2020-06-18 11:27:11,257|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:27:11,258|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:27:11,258|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:27:11,321|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:27:11,866|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:27:11,889|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:11,890|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:11,890|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:11,890|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:11,907|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:11,908|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:27:11,908|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f26a8660208>>]
+
+INFO|2020-06-18 11:27:11,908|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:27:11,909|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:27:11,909|pysph.solver.application|Setup took: 0.65425 secs
+INFO|2020-06-18 11:27:11,917|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:27:20,934|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:27:20,986|pysph.solver.application|Run took: 9.06948 secs
+INFO|2020-06-18 11:27:46,951|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:27:46,951|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:27:46,952|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:27:47,013|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:27:47,550|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:27:47,572|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:47,577|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:47,578|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:47,578|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:47,614|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:27:47,617|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:27:47,618|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fd8e5289ef0>>]
+
+INFO|2020-06-18 11:27:47,620|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:27:47,621|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:27:47,622|pysph.solver.application|Setup took: 0.67369 secs
+INFO|2020-06-18 11:27:47,650|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:27:56,715|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:27:56,765|pysph.solver.application|Run took: 9.11496 secs
+INFO|2020-06-18 11:29:04,780|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:29:04,781|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:29:04,781|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:29:04,841|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:29:05,383|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:29:05,409|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:05,409|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:05,410|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:05,410|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:05,428|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:05,428|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:29:05,428|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f3cc856ef60>>]
+
+INFO|2020-06-18 11:29:05,429|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:29:05,429|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:29:05,429|pysph.solver.application|Setup took: 0.65167 secs
+INFO|2020-06-18 11:29:05,438|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:29:14,541|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:29:14,590|pysph.solver.application|Run took: 9.15234 secs
+INFO|2020-06-18 11:29:31,172|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:29:31,173|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:29:31,173|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:29:31,234|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:29:31,783|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:29:31,809|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:31,810|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:31,810|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:31,810|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:31,823|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:29:31,825|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:29:31,826|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f0304d35f98>>]
+
+INFO|2020-06-18 11:29:31,828|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:29:31,828|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:29:31,829|pysph.solver.application|Setup took: 0.65926 secs
+INFO|2020-06-18 11:29:31,840|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:29:41,148|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:29:41,201|pysph.solver.application|Run took: 9.36167 secs
+INFO|2020-06-18 11:37:20,034|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:37:20,034|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:37:20,035|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:37:20,399|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:37:20,977|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:37:21,017|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:37:21,019|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:37:21,019|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:37:21,019|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:37:21,042|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:37:21,044|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:37:21,045|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f6eba572470>>]
+
+INFO|2020-06-18 11:37:21,045|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:37:21,046|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:37:21,046|pysph.solver.application|Setup took: 1.01503 secs
+INFO|2020-06-18 11:37:21,058|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:37:30,136|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:37:30,187|pysph.solver.application|Run took: 9.12894 secs
+INFO|2020-06-18 11:38:06,939|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:38:06,940|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:38:06,940|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:38:07,001|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:38:07,556|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:38:07,580|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:07,580|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:07,580|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:07,581|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:07,620|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:07,621|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:38:07,621|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fa1e51be0f0>>]
+
+INFO|2020-06-18 11:38:07,622|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:38:07,625|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:38:07,625|pysph.solver.application|Setup took: 0.68807 secs
+INFO|2020-06-18 11:38:07,644|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:38:16,607|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:38:16,660|pysph.solver.application|Run took: 9.01654 secs
+INFO|2020-06-18 11:38:56,342|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:38:56,343|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:38:56,343|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:38:56,411|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:38:56,958|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:38:56,972|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:56,974|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:56,975|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:56,977|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:56,998|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:38:57,002|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:38:57,003|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f8da065cf60>>]
+
+INFO|2020-06-18 11:38:57,003|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:38:57,004|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:38:57,004|pysph.solver.application|Setup took: 0.66404 secs
+INFO|2020-06-18 11:38:57,017|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:39:06,085|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:39:06,172|pysph.solver.application|Run took: 9.15651 secs
+INFO|2020-06-18 11:39:19,347|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:39:19,347|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:39:19,348|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:39:19,412|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:39:19,941|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:39:19,965|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:19,965|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:19,965|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:19,966|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:19,983|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:19,984|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:39:19,984|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f102b188f60>>]
+
+INFO|2020-06-18 11:39:19,984|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:39:19,985|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:39:19,985|pysph.solver.application|Setup took: 0.64143 secs
+INFO|2020-06-18 11:39:19,993|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:39:28,975|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:39:29,027|pysph.solver.application|Run took: 9.03470 secs
+INFO|2020-06-18 11:39:46,863|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:39:46,864|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:39:46,864|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:39:46,927|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:39:47,475|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:39:47,498|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:47,498|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:47,498|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:47,499|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:47,516|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:39:47,518|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:39:47,520|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f37e231ff60>>]
+
+INFO|2020-06-18 11:39:47,521|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:39:47,523|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:39:47,524|pysph.solver.application|Setup took: 0.66477 secs
+INFO|2020-06-18 11:39:47,536|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:39:56,562|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:39:56,611|pysph.solver.application|Run took: 9.07580 secs
+INFO|2020-06-18 11:40:10,315|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:40:10,316|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:40:10,316|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:40:10,377|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:40:10,913|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:40:10,938|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:40:10,939|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:40:10,939|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:40:10,940|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:40:10,957|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:40:10,958|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:40:10,958|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fe6f2b05ef0>>]
+
+INFO|2020-06-18 11:40:10,959|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:40:10,959|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:40:10,959|pysph.solver.application|Setup took: 0.64640 secs
+INFO|2020-06-18 11:40:10,968|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:40:19,993|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:40:20,041|pysph.solver.application|Run took: 9.07387 secs
+INFO|2020-06-18 11:41:59,639|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:41:59,640|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:41:59,640|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:41:59,719|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:42:00,257|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:42:00,281|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 125000
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 170000
+----------------------------------------------------------------------
+INFO|2020-06-18 11:42:00,283|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:42:00,284|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:42:00,286|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:42:00,305|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:42:00,308|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:42:00,310|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f3d5a2def60>>]
+
+INFO|2020-06-18 11:42:00,313|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:42:00,313|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:42:00,313|pysph.solver.application|Setup took: 0.67702 secs
+INFO|2020-06-18 11:42:00,324|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:42:36,944|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:42:37,312|pysph.solver.application|Run took: 36.99274 secs
+INFO|2020-06-18 11:43:20,646|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:43:20,647|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:43:20,647|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:43:20,725|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:43:21,266|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:43:21,296|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 125000
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 170000
+----------------------------------------------------------------------
+INFO|2020-06-18 11:43:21,296|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:43:21,296|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:43:21,297|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:43:21,313|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:43:21,313|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:43:21,313|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f9af7377ba8>>]
+
+INFO|2020-06-18 11:43:21,314|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:43:21,314|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:43:21,315|pysph.solver.application|Setup took: 0.68343 secs
+INFO|2020-06-18 11:43:21,322|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:43:57,902|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:43:57,999|pysph.solver.application|Run took: 36.67739 secs
+INFO|2020-06-18 11:44:38,653|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:44:38,654|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:44:38,654|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:44:38,721|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:44:39,273|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:44:39,297|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 27664
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 72664
+----------------------------------------------------------------------
+INFO|2020-06-18 11:44:39,299|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:44:39,300|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:44:39,302|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:44:39,323|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:44:39,326|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:44:39,328|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f4272f26198>>]
+
+INFO|2020-06-18 11:44:39,329|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:44:39,331|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:44:39,332|pysph.solver.application|Setup took: 0.68279 secs
+INFO|2020-06-18 11:44:39,345|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:44:48,337|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:44:48,400|pysph.solver.application|Run took: 9.05478 secs
+INFO|2020-06-18 11:45:16,552|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 11:45:16,553|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 11:45:16,553|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 11:45:16,625|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 11:45:17,164|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 11:45:17,186|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 92232
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 137232
+----------------------------------------------------------------------
+INFO|2020-06-18 11:45:17,187|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:45:17,187|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 11:45:17,187|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 11:45:17,207|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 11:45:17,207|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:45:17,208|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f712c5aef98>>]
+
+INFO|2020-06-18 11:45:17,208|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 11:45:17,208|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 11:45:17,209|pysph.solver.application|Setup took: 0.65911 secs
+INFO|2020-06-18 11:45:17,218|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 11:45:44,513|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 11:45:44,599|pysph.solver.application|Run took: 27.38157 secs
+INFO|2020-06-18 13:08:31,497|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 13:08:31,509|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 13:08:31,510|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 13:08:31,646|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 13:08:32,187|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 13:08:32,252|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 13:08:32,263|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 13:08:32,264|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 13:08:32,264|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 13:08:32,304|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 13:08:32,304|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 13:08:32,306|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7ff7fa0b0f98>>]
+
+INFO|2020-06-18 13:08:32,306|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 13:08:32,306|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 13:08:32,307|pysph.solver.application|Setup took: 0.81998 secs
+INFO|2020-06-18 13:08:32,321|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 13:08:38,820|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 13:08:38,869|pysph.solver.application|Run took: 6.54859 secs
+INFO|2020-06-18 19:16:24,208|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:16:24,219|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:16:24,222|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:16:24,319|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:16:24,917|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:16:25,003|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:16:25,016|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:16:25,016|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:16:25,016|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:16:25,051|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:16:25,052|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:16:25,052|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f3c4c96bf98>>]
+
+INFO|2020-06-18 19:16:25,052|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:16:25,052|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:16:25,052|pysph.solver.application|Setup took: 0.84675 secs
+INFO|2020-06-18 19:16:25,091|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:16:31,898|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:16:32,638|pysph.solver.application|Run took: 7.54730 secs
+INFO|2020-06-18 19:19:04,280|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:19:04,280|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:19:04,281|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:19:04,340|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:19:04,866|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:19:04,889|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:19:04,908|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:19:04,908|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:19:04,908|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:19:04,935|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:19:04,937|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:19:04,939|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f1c453352b0>>]
+
+INFO|2020-06-18 19:19:04,940|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:19:04,940|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:19:04,941|pysph.solver.application|Setup took: 0.66371 secs
+INFO|2020-06-18 19:19:04,947|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:19:11,535|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:19:11,583|pysph.solver.application|Run took: 6.63604 secs
+INFO|2020-06-18 19:23:50,767|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:23:50,768|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:23:50,768|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:23:50,828|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:23:51,369|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:23:51,445|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:23:51,464|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:23:51,464|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:23:51,464|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:23:51,507|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:23:51,509|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:23:51,510|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f320a844278>>]
+
+INFO|2020-06-18 19:23:51,510|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:23:51,511|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:23:51,511|pysph.solver.application|Setup took: 0.75165 secs
+INFO|2020-06-18 19:23:51,533|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:23:57,971|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:23:58,019|pysph.solver.application|Run took: 6.48604 secs
+INFO|2020-06-18 19:24:38,369|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:24:38,370|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:24:38,370|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:24:38,428|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:24:38,962|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:24:38,986|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:24:38,988|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:24:38,989|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:24:38,991|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:24:39,010|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:24:39,013|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:24:39,015|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f59da5502b0>>]
+
+INFO|2020-06-18 19:24:39,016|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:24:39,018|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:24:39,020|pysph.solver.application|Setup took: 0.65341 secs
+INFO|2020-06-18 19:24:39,033|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:24:45,501|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:24:45,546|pysph.solver.application|Run took: 6.51361 secs
+INFO|2020-06-18 19:25:48,683|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:25:48,684|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:25:48,684|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:25:48,743|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:25:49,286|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:25:49,309|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:25:49,328|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:25:49,328|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:25:49,328|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:25:49,360|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:25:49,360|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:25:49,365|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f1051c65278>>]
+
+INFO|2020-06-18 19:25:49,365|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:25:49,366|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:25:49,366|pysph.solver.application|Setup took: 0.68551 secs
+INFO|2020-06-18 19:25:49,379|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:25:55,954|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:25:56,002|pysph.solver.application|Run took: 6.62378 secs
+INFO|2020-06-18 19:27:44,488|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:27:44,488|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:27:44,489|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:27:44,554|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:27:45,130|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:27:45,153|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:27:45,154|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:27:45,154|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:27:45,154|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:27:45,172|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:27:45,174|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:27:45,176|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f46f6a87f98>>]
+
+INFO|2020-06-18 19:27:45,178|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:27:45,180|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:27:45,183|pysph.solver.application|Setup took: 0.69761 secs
+INFO|2020-06-18 19:27:45,196|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:27:51,839|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:27:51,889|pysph.solver.application|Run took: 6.69383 secs
+INFO|2020-06-18 19:30:36,411|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:30:36,411|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:30:36,411|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:30:36,472|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:30:37,062|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:30:37,107|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:30:37,108|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:30:37,108|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:30:37,108|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:30:37,142|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:30:37,142|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:30:37,143|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f4b7fd8efd0>>]
+
+INFO|2020-06-18 19:30:37,143|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:30:37,143|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:30:37,144|pysph.solver.application|Setup took: 0.73593 secs
+INFO|2020-06-18 19:30:37,160|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:30:43,847|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:30:43,893|pysph.solver.application|Run took: 6.73349 secs
+INFO|2020-06-18 19:31:54,781|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:31:54,781|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:31:54,781|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:31:54,845|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:31:55,418|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:31:55,442|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:31:55,443|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:31:55,443|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:31:55,443|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:31:55,460|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:31:55,461|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:31:55,461|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fe904968f98>>]
+
+INFO|2020-06-18 19:31:55,462|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:31:55,462|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:31:55,462|pysph.solver.application|Setup took: 0.68424 secs
+INFO|2020-06-18 19:31:55,470|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:32:02,037|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:32:02,082|pysph.solver.application|Run took: 6.61233 secs
+INFO|2020-06-18 19:32:45,335|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:32:45,335|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:32:45,336|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:32:45,396|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:32:45,964|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:32:45,991|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:32:45,993|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:32:45,995|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:32:45,996|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:32:46,016|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:32:46,019|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:32:46,021|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fb8fcdb5f98>>]
+
+INFO|2020-06-18 19:32:46,023|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:32:46,023|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:32:46,024|pysph.solver.application|Setup took: 0.69152 secs
+INFO|2020-06-18 19:32:46,032|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:32:52,554|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:32:52,599|pysph.solver.application|Run took: 6.56730 secs
+INFO|2020-06-18 19:33:14,231|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:33:14,231|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:33:14,232|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:33:14,294|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:33:14,838|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:33:14,862|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:33:14,863|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:33:14,863|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:33:14,863|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:33:14,881|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:33:14,882|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:33:14,882|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7ff5d50a7240>>]
+
+INFO|2020-06-18 19:33:14,884|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:33:14,884|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:33:14,884|pysph.solver.application|Setup took: 0.65679 secs
+INFO|2020-06-18 19:33:14,892|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:33:21,454|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:33:21,502|pysph.solver.application|Run took: 6.60993 secs
+INFO|2020-06-18 19:34:30,045|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:34:30,046|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:34:30,046|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:34:30,104|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:34:30,678|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:34:30,702|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:34:30,712|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:34:30,712|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:34:30,712|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:34:30,759|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:34:30,759|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:34:30,760|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f7cda0f2ba8>>]
+
+INFO|2020-06-18 19:34:30,760|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:34:30,761|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:34:30,761|pysph.solver.application|Setup took: 0.71809 secs
+INFO|2020-06-18 19:34:30,771|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:34:37,374|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:34:37,423|pysph.solver.application|Run took: 6.65324 secs
+INFO|2020-06-18 19:35:11,640|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:35:11,641|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:35:11,641|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:35:11,701|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:35:12,248|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:35:12,270|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:12,273|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:12,274|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:12,276|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:12,293|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:12,295|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:35:12,296|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7fe989c85ba8>>]
+
+INFO|2020-06-18 19:35:12,298|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:35:12,300|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:35:12,302|pysph.solver.application|Setup took: 0.66475 secs
+INFO|2020-06-18 19:35:12,313|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:35:18,757|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:35:18,806|pysph.solver.application|Run took: 6.49389 secs
+INFO|2020-06-18 19:35:44,719|pysph.solver.application|Started as:
+/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal.py --pfreq=500 --kernel=QuinticSpline --n=50 --no-interface --dim=3 --mms=1 --hdx=0.85 --tf=10 --ts=0.3
+INFO|2020-06-18 19:35:44,720|pysph.solver.application|Running on souraj-Notebook with address 127.0.1.1
+INFO|2020-06-18 19:35:44,720|pysph.solver.application|Using OpenMP schedule dynamic,64
+INFO|2020-06-18 19:35:44,780|pysph.solver.application|Generating output in /home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output
+INFO|2020-06-18 19:35:45,313|compyle.ext_module|Precompiled code from: /home/souraj/.pysph/source/py3.6-linux-x86_64/m_7af69bd65b7cfd16f547809634432d45.pyx
+INFO|2020-06-18 19:35:45,337|pysph.solver.application|----------------------------------------------------------------------
+No of particles:
+  slab: 19200
+  boundary_l: 7500
+  boundary_r: 7500
+  boundary_t: 7500
+  boundary_b: 7500
+  boundary_ft: 7500
+  boundary_bk: 7500
+  Total: 64200
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:45,358|pysph.solver.application|Using kernel:
+----------------------------------------------------------------------
+  QuinticSpline(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:45,358|pysph.solver.application|Using nnps:
+----------------------------------------------------------------------
+  LinkedListNNPS(dim=3)
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:45,358|pysph.solver.application|Using integrator:
+----------------------------------------------------------------------
+  EulerIntegrator(slab=DiffusionStep())
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:45,393|pysph.solver.application|Using equations:
+----------------------------------------------------------------------
+[
+Group(equations=[
+    InterpolateTemperature(dest='boundary_l', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_r', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_t', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_b', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_ft', sources=['slab']), 
+    InterpolateTemperature(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    UpdateBoundaryFlux3D(dest='boundary_l', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_r', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_t', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_b', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_ft', sources=['slab']), 
+    UpdateBoundaryFlux3D(dest='boundary_bk', sources=['slab'])
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    SetTempGradient(dest='boundary_l', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_r', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_t', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_b', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_ft', sources=None, dx=0.01264), 
+    SetTempGradient(dest='boundary_bk', sources=None, dx=0.01264)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0),
+Group(equations=[
+    ClearyHeatDiffusion(dest='slab', sources=['slab', 'boundary_l',
+    'boundary_r', 'boundary_t', 'boundary_b', 'boundary_ft',
+    'boundary_bk'], h=0.010744)
+  ],
+  real=False, update_nnps=False, iterate=False, max_iterations=1,
+  min_iterations=0, start_idx=0)
+]
+----------------------------------------------------------------------
+INFO|2020-06-18 19:35:45,395|pysph.solver.application|Callbacks:
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:35:45,397|pysph.solver.application|Pre-step callbacks:
+[<bound method CubeFluxUpdate.pre_step of <equations.CubeFluxUpdate object at 0x7f9d6e7a0f28>>]
+
+INFO|2020-06-18 19:35:45,398|pysph.solver.application|Post-step callbacks:
+[]
+
+INFO|2020-06-18 19:35:45,398|pysph.solver.application|Post-stage callbacks:
+[]
+----------------------------------------------------------------------
+
+INFO|2020-06-18 19:35:45,399|pysph.solver.application|Setup took: 0.68182 secs
+INFO|2020-06-18 19:35:45,419|pysph.solver.solver|Writing output at time 0, iteration 0, dt = 0.365874
+INFO|2020-06-18 19:35:51,869|pysph.solver.solver|Writing output at time 10, iteration 28, dt = 0.121399
+INFO|2020-06-18 19:35:51,915|pysph.solver.application|Run took: 6.49624 secs
