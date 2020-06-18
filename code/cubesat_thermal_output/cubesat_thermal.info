@@ -1,1 +1,0 @@
-{"fname": "cubesat_thermal", "output_dir": "/home/souraj/MTP/cubesat_thermal/code/cubesat_thermal_output", "args": ["--pfreq=500", "--kernel=QuinticSpline", "--n=50", "--no-interface", "--dim=3", "--mms=1", "--hdx=0.85", "--tf=10", "--ts=0.3"], "completed": true, "cpu_time": 6.496239900588989}
