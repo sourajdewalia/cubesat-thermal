@@ -277,7 +277,7 @@ class CubeFluxUpdate(Tool):
     def _flux_update(self, t_i):
         #print("tool is run")
         orient_vec, rad_vec = self.satellite.get_orientation_flux_vector(t=t_i)
-        Flux = self.SOLAR_CONST * rad_vec/np.sqrt(np.dot(rad_vec,rad_vec))
+        Flux = self.SOLAR_CONST * rad_vec
 
         Area = np.zeros((6,3))
         Area[0,:] = orient_vec[0,:]

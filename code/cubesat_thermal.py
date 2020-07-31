@@ -26,11 +26,10 @@ class CubeSatThermal(Application):
     """ Heat Diffusion Application"""
     def initialize(self):
         self.dx = 0.025
-        self.rho = 2.7e3
+        self.rho = 2770.#2.7e3
         self.h = 1.0 * self.dx
         self.dim = 3
         self.nl = 3
-        self.interface = True
         self.method = 1
         self.hdx = 1.2
         self.ts = 0.15
@@ -39,12 +38,12 @@ class CubeSatThermal(Application):
         self.H = 0.632
         self.thickness = 0.01 # = 10mm
         self.t0 = 0.    # Ambient Temparature
-        self.t1 = 2.    # Temperature of box
-        self.cp = 900.  # J/kg.K
-        self.k = 230.   # J/m.K
-        self.absorptivity = 0.15
-        self.emissivity = 0.#0.30
-        self.satellite = SatelliteFlux() # Create a satellite model (default)
+        self.t1 = 215.0    # Temperature of box
+        self.cp = 961.2#900.  # J/kg.K
+        self.k = 167.9#205.   # J/m.K
+        self.absorptivity = 0.42
+        self.emissivity = 0.87
+        self.satellite = SatelliteFlux(epoch=2433282) # Create a satellite model (default)
 
     def add_user_options(self, group):
         group.add_argument(
@@ -59,17 +58,9 @@ class CubeSatThermal(Application):
             "--dim", action="store", type=int, dest="dim", default=3,
             help="Dimension of problem."
         )
-        add_bool_argument(
-            group, "interface", dest="interface",
-            default='None', help="If True the interface will have particles"
-        )
-        group.add_argument(
-            "--mms", action="store", type=int, dest="mms", default=1,
-            help="Dimension of problem."
-        )
         group.add_argument(
             "--ts", action="store", type=float, dest="ts", default=0.15,
-            help="Boundary Condition of the problem."
+            help="Time step factor."
         )
         group.add_argument(
             '--grad-correction', action="store_true", dest='grad_correction',
@@ -82,21 +73,19 @@ class CubeSatThermal(Application):
 
     def consume_user_options(self):
         self.dx = self.L/float(self.options.n)
-        self.interface = self.options.interface
         self.hdx = self.options.hdx
         self.h = self.hdx * self.dx
         # self.h = 0.268 * self.dx**(0.5) # schwaiger
         self.dim = self.options.dim
-        self.mms = self.options.mms
         self.ts = self.options.ts
 
     def _create_3d_surf(self):
         dx = self.dx
         x, y, z = np.mgrid[dx/2:self.L:dx, dx/2:self.B:dx, dx/2:self.H:dx]
 
-        tk = self.thickness + self.dx
+        tk = self.thickness
         if self.thickness > 0:
-            box = ~((x >= tk) & (x <= self.L - tk) & (y >= tk) & (y <= self.L - tk) & (z >= 0) & (z <= self.L))
+            box = ~((x >= tk) & (x <= self.L - tk) & (y >= tk) & (y <= self.L - tk) & (z >= tk) & (z <= self.L - tk))
             xs, ys, zs = x[box], y[box], z[box]
         else:
             xs, ys, zs = x[:], y[:], z[:]
@@ -215,85 +204,38 @@ class CubeSatThermal(Application):
         boundary_ft.add_output_arrays(props + addl_props)
         boundary_bk.add_output_arrays(props + addl_props)
 
-        slab.add_constant('cp', self.cp)
-        slab.add_constant('k', self.k)
+        
+        for cnst, cnst_val in zip(['cp', 'k'], [self.cp, self.k]):
+            slab.add_constant(cnst, cnst_val)
+            boundary_l.add_constant(cnst, cnst_val)
+            boundary_r.add_constant(cnst, cnst_val)
+            boundary_t.add_constant(cnst, cnst_val)
+            boundary_b.add_constant(cnst, cnst_val)
+            boundary_ft.add_constant(cnst, cnst_val)
+            boundary_bk.add_constant(cnst, cnst_val)
 
-        boundary_l.add_constant('cp', self.cp)
-        boundary_l.add_constant('k', self.k)
-        boundary_r.add_constant('cp', self.cp)
-        boundary_r.add_constant('k', self.k)
-        boundary_t.add_constant('cp', self.cp)
-        boundary_t.add_constant('k', self.k)
-        boundary_b.add_constant('cp', self.cp)
-        boundary_b.add_constant('k', self.k)
-        boundary_ft.add_constant('cp', self.cp)
-        boundary_ft.add_constant('k', self.k)
-        boundary_bk.add_constant('cp', self.cp)
-        boundary_bk.add_constant('k', self.k)
+        alpha = self.absorptivity
+        epsilon = self.emissivity
+        boundary_l.alpha[:] = alpha
+        boundary_r.alpha[:] = alpha
+        boundary_t.alpha[:] = alpha
+        boundary_b.alpha[:] = alpha
+        boundary_ft.alpha[:]= alpha 
+        boundary_bk.alpha[:]= alpha 
+        boundary_l.epsilon[:] = epsilon
+        boundary_r.epsilon[:] = epsilon
+        boundary_t.epsilon[:] = epsilon
+        boundary_b.epsilon[:] = epsilon
+        boundary_ft.epsilon[:]= epsilon
+        boundary_bk.epsilon[:]= epsilon
 
-        if self.mms == 1:
-            # constants
-            alpha = self.absorptivity
-            epsilon = self.emissivity
-            boundary_l.alpha[:] = alpha
-            boundary_r.alpha[:] = alpha
-            boundary_t.alpha[:] = alpha
-            boundary_b.alpha[:] = alpha
-            boundary_ft.alpha[:]= alpha 
-            boundary_bk.alpha[:]= alpha 
-            boundary_l.epsilon[:] = epsilon
-            boundary_r.epsilon[:] = epsilon
-            boundary_t.epsilon[:] = epsilon
-            boundary_b.epsilon[:] = epsilon
-            boundary_ft.epsilon[:]= epsilon
-            boundary_bk.epsilon[:]= epsilon
-
-            # orient_vec, flux_vec = self.satellite.get_orientation_flux_vector(t=0.)
-            # T0 = self.t0
-            # rad_vec = np.array([-1,-1,-1])
-            # Flux = 1366 * rad_vec/np.sqrt(np.dot(rad_vec,rad_vec))
-
-            # n = 6
-            # a = 1. #a x a x a
-            # # Area Vectors
-            # Area = np.empty((6,3)) * a * a
-            # Area[1] = np.array([0,1,0])
-            # Area[0] = np.array([0,-1,0])
-            # Area[2] = np.array([1,0,0])
-            # Area[3] = np.array([-1,0,0])
-            # Area[4] = np.array([0,0,1])
-            # Area[5] = np.array([0,0,-1])
-            # Fsun = np.zeros(n)
-            # for i in range(n):
-            #     AdotF = np.dot(Area[i], Flux)
-            #     if AdotF < 0:
-            #         Fsun[i] = abs(AdotF)
-            # self.Fsun[:] = Fsun[:]
-
-            # cube dimensions
-            # print(Fsun)
-            slab.T[:] = self.t1
-            boundary_l.T[:] = boundary_l.temp_T[:] = self.t1
-            boundary_r.T[:] = boundary_r.temp_T[:] = self.t1
-            boundary_t.T[:] = boundary_t.temp_T[:] = self.t1
-            boundary_b.T[:] = boundary_b.temp_T[:] = self.t1
-            boundary_ft.T[:] = boundary_ft.temp_T[:] = self.t1
-            boundary_bk.T[:] = boundary_bk.temp_T[:] = self.t1
-
-            # slab.qx[:] = 0.0
-            # boundary_l.qx[:] = -epsilon * SIGMA * (self.t1**4)+alpha*Fsun[0]
-            # boundary_r.qx[:] = -epsilon * SIGMA * (self.t1**4)+alpha*Fsun[1]
-            # boundary_t.qx[:] = -epsilon * SIGMA * (self.t1**4)+alpha*Fsun[2]
-            # boundary_b.qx[:] = -epsilon * SIGMA * (self.t1**4)+alpha*Fsun[3]
-            # boundary_ft.qx[:] = -epsilon * SIGMA * (self.t1**4)+alpha*Fsun[4]
-            # boundary_bk.qx[:] = -epsilon * SIGMA * (self.t1**4)+alpha*Fsun[5]
-
-            # boundary_l.Fsun[:] = Fsun[0]
-            # boundary_r.Fsun[:] = Fsun[1]
-            # boundary_t.Fsun[:] = Fsun[2]
-            # boundary_b.Fsun[:] = Fsun[3]
-            # boundary_ft.Fsun[:] = Fsun[4]
-            # boundary_bk.Fsun[:] = Fsun[5]
+        slab.T[:] = self.t1
+        boundary_l.T[:] = boundary_l.temp_T[:] = self.t1
+        boundary_r.T[:] = boundary_r.temp_T[:] = self.t1
+        boundary_t.T[:] = boundary_t.temp_T[:] = self.t1
+        boundary_b.T[:] = boundary_b.temp_T[:] = self.t1
+        boundary_ft.T[:] = boundary_ft.temp_T[:] = self.t1
+        boundary_bk.T[:] = boundary_bk.temp_T[:] = self.t1
 
         return [slab, boundary_l, boundary_r, boundary_t, boundary_b, boundary_ft, boundary_bk]
 
@@ -301,7 +243,7 @@ class CubeSatThermal(Application):
         if self.dim == 3:
             pa = self._create_3d_surf()
 
-        #pa = self.update_initial_properties(pa)
+        pa = self.update_initial_properties(pa)
         return pa
 
     def create_solver(self):
@@ -312,11 +254,6 @@ class CubeSatThermal(Application):
         tf = 3.0
         if self.dim == 3 and self.method == 1:
             integrator = EulerIntegrator(slab=DiffusionStep())
-        elif self.dim == 3 and self.method == 2:
-            integrator = EulerIntegrator(slab=DiffusionStep(),
-                            boundary_l=DiffusionStep(), boundary_r=DiffusionStep(),
-                            boundary_t=DiffusionStep(), boundary_b=DiffusionStep(),
-                            boundary_ft=DiffusionStep(), boundary_bk=DiffusionStep())
         solver = Solver(
             kernel=kernel, dim=self.dim, integrator=integrator,
             dt=dt, tf=tf
@@ -324,7 +261,8 @@ class CubeSatThermal(Application):
         return solver
 
     def cleary(self):
-        if self.dim == 3 and self.mms == 1:
+        equations = []
+        if self.dim == 3:
             all_entities = ['slab', 'boundary_l', 'boundary_r', 'boundary_t', 'boundary_b',
                             'boundary_ft', 'boundary_bk']
             equations = [
@@ -367,110 +305,14 @@ class CubeSatThermal(Application):
             ]
             # if gradient correction is enabled
             if self.options.grad_correction:
+                print("adding gradient correction")
                 eqn1 = Group(equations=[
                     GradientCorrectionPreStep(dest='slab', sources=all_entities, dim=self.dim)
                     ],real=False)
-                eqn2 = GradientCorrection(dest='slab', sources=all_entities, dim=self.dim)
+                eqn2 = GradientCorrection(dest='slab', sources=all_entities, dim=self.dim, tol=5.0)
                 equations.insert(0, eqn1)
                 equations[-1].equations.insert(0, eqn2)
 
-        elif self.dim == 3 and self.mms == 3 and self.method == 1:
-            all_entities = ['slab', 'boundary_l', 'boundary_r', 'boundary_t', 'boundary_b',
-                            'boundary_ft', 'boundary_bk']
-            equations = [
-                Group(
-                    equations=[
-                                InterpolateTemperature(dest='boundary_l', sources=['slab']),
-                                InterpolateTemperature(dest='boundary_r', sources=['slab']),
-                                InterpolateTemperature(dest='boundary_t', sources=['slab']),
-                                InterpolateTemperature(dest='boundary_b', sources=['slab']),
-                                InterpolateTemperature(dest='boundary_ft', sources=['slab']),
-                                InterpolateTemperature(dest='boundary_bk', sources=['slab'])
-                    ],
-                real=False),
-                Group(
-                    equations=[
-                                # UpdateBoundaryFlux(dest='boundary_l',  sources=['slab'], h0=self.h0),
-                                UpdateBoundaryFlux(dest='boundary_r',  sources=['slab'], h0=self.h0),
-                                UpdateBoundaryFlux(dest='boundary_t',  sources=['slab'], h0=self.h0),
-                                # UpdateBoundaryFlux(dest='boundary_b',  sources=['slab'], h0=self.h0),
-                                # UpdateBoundaryFlux(dest='boundary_ft', sources=['slab'], h0=self.h0),
-                                # UpdateBoundaryFlux(dest='boundary_bk', sources=['slab'], h0=self.h0)
-                    ],
-                real=False),                                            
-                Group(
-                    equations=[
-                                SetTempGradient(dest='boundary_l', sources=None, dx=self.dx),
-                                SetTempGradient(dest='boundary_r', sources=None, dx=self.dx),
-                                SetTempGradient(dest='boundary_t', sources=None, dx=self.dx),
-                                SetTempGradient(dest='boundary_b', sources=None, dx=self.dx),
-                                SetTempGradient(dest='boundary_ft', sources=None, dx=self.dx),
-                                SetTempGradient(dest='boundary_bk', sources=None, dx=self.dx)
-                    ],
-                real=False),
-                Group(
-                    equations=[
-                                ClearyHeatDiffusion(dest='slab', sources=all_entities,
-                                             h=self.h)
-                    ],
-                real=False)
-            ]
-            # if gradient correction is enabled
-            if self.options.grad_correction:
-                eqn1 = Group(equations=[
-                    GradientCorrectionPreStep(dest='slab', sources=all_entities, dim=self.dim)
-                    ],real=False)
-                eqn2 = GradientCorrection(dest='slab', sources=all_entities, dim=self.dim)
-                equations.insert(0, eqn1)
-                equations[-1].equations.insert(0, eqn2)
-
-        elif self.dim == 3 and self.mms == 3 and self.method == 2:
-            all_entities = ['slab', 'boundary_l', 'boundary_r', 'boundary_t', 'boundary_b',
-                            'boundary_ft', 'boundary_bk']
-            equations = [
-                Group(
-                    equations=[
-                                GradientCorrectionPreStep(dest='slab', sources=all_entities, dim=self.dim),
-                                GradientCorrectionPreStep(dest='boundary_l', sources=['boundary_l','slab'], dim=self.dim),
-                                GradientCorrectionPreStep(dest='boundary_r', sources=['boundary_r','slab'], dim=self.dim),
-                                GradientCorrectionPreStep(dest='boundary_t', sources=['boundary_t','slab'], dim=self.dim),
-                                GradientCorrectionPreStep(dest='boundary_b', sources=['boundary_b','slab'], dim=self.dim),
-                                GradientCorrectionPreStep(dest='boundary_ft', sources=['boundary_ft','slab'], dim=self.dim),
-                                GradientCorrectionPreStep(dest='boundary_bk', sources=['boundary_bk','slab'], dim=self.dim)
-                    ],
-                real=False),
-                Group(
-                    equations=[
-                                UpdateBoundaryFlux(dest='boundary_r', sources=['slab'], h0=self.h0),
-                                UpdateBoundaryFlux(dest='boundary_t', sources=['slab'], h0=self.h0)
-                    ],
-                real=False),                                            
-                Group(
-                    equations=[
-                                GradientCorrection(dest='slab', sources=all_entities, dim=self.dim),
-                                ClearyHeatDiffusionFlux(dest='slab', sources=all_entities,
-                                             h=self.h, dx=self.dx),
-                                GradientCorrection(dest='boundary_l', sources=['boundary_l','slab'], dim=self.dim),
-                                ClearyHeatDiffusionFlux(dest='boundary_l', sources=['boundary_l','slab'],
-                                             h=self.h, dx=self.dx),
-                                GradientCorrection(dest='boundary_r', sources=['boundary_r','slab'], dim=self.dim),
-                                ClearyHeatDiffusionFlux(dest='boundary_r', sources=['boundary_r','slab'],
-                                             h=self.h, dx=self.dx),
-                                GradientCorrection(dest='boundary_t', sources=['boundary_t','slab'], dim=self.dim),
-                                ClearyHeatDiffusionFlux(dest='boundary_t', sources=['boundary_t','slab'],
-                                             h=self.h, dx=self.dx),
-                                GradientCorrection(dest='boundary_b', sources=['boundary_b','slab'], dim=self.dim),
-                                ClearyHeatDiffusionFlux(dest='boundary_b', sources=['boundary_b','slab'],
-                                             h=self.h, dx=self.dx),
-                                GradientCorrection(dest='boundary_ft', sources=['boundary_ft','slab'], dim=self.dim),
-                                ClearyHeatDiffusionFlux(dest='boundary_ft', sources=['boundary_ft','slab'],
-                                             h=self.h, dx=self.dx),
-                                GradientCorrection(dest='boundary_bk', sources=['boundary_bk','slab'], dim=self.dim),
-                                ClearyHeatDiffusionFlux(dest='boundary_bk', sources=['boundary_bk','slab'],
-                                             h=self.h, dx=self.dx),
-                    ],
-                real=False)
-            ]
         return equations
 
     def update_initial_properties(self, pa):
@@ -512,11 +354,8 @@ class CubeSatThermal(Application):
         if len(self.output_files) == 0:
             return
         self.res = os.path.join(self.output_dir, 'results.npz')
-        # x, comp, exact = self._l2_norm()
-        x = self._l2_norm()[:]
-        print('again', x)
-        print('this')
-        # np.savez(self.res, x=x, comp=comp, exact=exact)
+        x, comp, exact = self._l2_norm()
+        np.savez(self.res, x=x, comp=comp, exact=exact)
         # self.plot_exact_vs_computed()
 
     def plot_exact_vs_computed(self):
@@ -555,75 +394,123 @@ class CubeSatThermal(Application):
     def _l2_norm(self):
         from pysph.solver.utils import load
         from matplotlib import pyplot as plt
+        import numpy as np
 
         #plt.figure()
         #for i in range(len(self.output_files)):
         data = load(self.output_files[-1])
         slab = data['arrays']['slab']
         tf = data['solver_data']['t']
-        x = slab.x[:]
-        print(x)
-        y = slab.y[:]
-        z = slab.z[:]
-        comp = slab.T[:]
+        x = np.copy(slab.x)
+        y = np.copy(slab.x)
+        z = np.copy(slab.x)
+        comp = np.copy(slab.T)
         exact = np.zeros_like(comp)
-        rho_p = slab.rho[:]
-        return x
-        if self.dim == 2 and self.mms == 3:
-            #exact = self._exact_2d(x, y, tf)
-            exact = self._exact_2d_mms3(x, y, tf)
-        elif self.dim == 3 and self.mms == 3:
-            #exact = self._exact_2d(x, y, tf)
-            mid = self.H/2.
-            mask = ((z > mid - 0.5* self.dx) & (z < mid + 0.6*self.dx))
-            x, y = x[mask], y[mask]
-            comp = comp[mask]
-            print(len(comp))
-            exact = self._exact_2d_mms3(x, y, tf)
-        elif self.dim == 3 and self.mms == 1:
-            pass
-            # t, err = [], []
-            # for i in range(1,len(self.output_files)):
-            #     data = load(self.output_files[i])
-            #     slab = data['arrays']['slab']
-            #     boundary_l = data['arrays']['boundary_l']
-            #     boundary_r = data['arrays']['boundary_r']
-            #     boundary_t = data['arrays']['boundary_t']
-            #     boundary_b = data['arrays']['boundary_b']
-            #     boundary_ft = data['arrays']['boundary_ft']
-            #     boundary_bk = data['arrays']['boundary_bk']
-            #     tf = data['solver_data']['t']
-            #     x = slab.x[:]
-            #     y = slab.y[:]
-            #     z = slab.z[:]
-            #     comp = slab.T[:]
-            #     rho_p = slab.rho[:]
-            #     F_sun_f = np.array([boundary_l.Fsun[0], boundary_r.Fsun[0],
-            #                 boundary_t.Fsun[0], boundary_b.Fsun[0],
-            #                 boundary_ft.Fsun[0], boundary_bk.Fsun[0]                
-            #                 ])
-            #     #print(slab.aT[:])
-            #     #print(comp)
-            #     TE = np.sum((comp - self.t1) * self.cp * rho_p * self.dx**self.dim)
-            #     Ein = np.sum(F_sun_f * tf * self.L*self.B * self.absorptivity)
-            #     er = abs(Ein-TE)/(Ein + 1e-12)
-            #     t.append(tf)
-            #     err.append(er)
-            #     print('Ein', Ein, end=' ')
-            #     print('TE', TE, end=' ')
-            #     print('PC Error', er)
-            #     # print('mass', np.sum(rho_p * self.dx**self.dim))
-            #     # print('volume',np.sum(np.ones_like(rho_p) * self.dx**self.dim))
-            #     # print('m v (act)', self.rho*self.L**3, self.L**3)
-            # plt.plot(t, err, label='absolute error')
-            # plt.plot(t, err, 'o')
-            # plt.xlabel('t')
-            # plt.ylabel('abs error')
-            # plt.legend()
-            # plt.grid()
-            # fig = os.path.join(self.output_dir, "comp.png")
-            # plt.savefig(fig, dpi=300)
-            # plt.close()
+        if self.dim == 3:
+            t, err = [], []
+            Tmin, Tmax, Tavg = [],[],[]
+            T1max, T2max, T3max, T4max, T5max, T6max = [],[],[],[],[],[]
+            T1min, T2min, T3min, T4min, T5min, T6min = [],[],[],[],[],[]
+            for i in range(0,len(self.output_files)):
+                data = load(self.output_files[i])
+                slab = data['arrays']['slab']
+                boundary_l = data['arrays']['boundary_l'].temp_T
+                boundary_r = data['arrays']['boundary_r'].temp_T
+                boundary_t = data['arrays']['boundary_t'].temp_T
+                boundary_b = data['arrays']['boundary_b'].temp_T
+                boundary_ft = data['arrays']['boundary_ft'].temp_T
+                boundary_bk = data['arrays']['boundary_bk'].temp_T
+                tf = data['solver_data']['t']
+                comp_i = np.copy(slab.T)
+                #rho_p  = np.copy(slab.rho)
+                # F_sun_f = np.array([boundary_l.Fsun[0], boundary_r.Fsun[0],
+                #             boundary_t.Fsun[0], boundary_b.Fsun[0],
+                #             boundary_ft.Fsun[0], boundary_bk.Fsun[0]                
+                #             ])
+                F_sun_f = np.array([1367])
+                #print(F_sun_f)
+                #print(slab.aT[:])
+                #print(comp)
+                TE = np.sum((comp_i - self.t1) * self.cp * self.rho * self.dx**self.dim)
+                Ein = np.sum(F_sun_f * tf * self.L*self.B * self.absorptivity)
+                er = abs(Ein-TE)/(Ein + 1e-12)
+                # if er > 10:
+                #     break
+                t.append(tf)
+                err.append(er)
+                Tma, Tmi = np.max(comp_i)-273.15, np.min(comp_i)-273.15
+                Tav = (np.sum(comp_i)/len(comp_i))-273.15
+                Tmax.append(Tma)
+                Tmin.append(Tmi)
+                Tavg.append(Tav)
+
+                T1max.append(np.max(boundary_l )-273.15)
+                T2max.append(np.max(boundary_r )-273.15)
+                T3max.append(np.max(boundary_t )-273.15)
+                T4max.append(np.max(boundary_b )-273.15)
+                T5max.append(np.max(boundary_ft)-273.15)
+                T6max.append(np.max(boundary_bk)-273.15)
+                T1min.append(np.min(boundary_l )-273.15)
+                T2min.append(np.min(boundary_r )-273.15)
+                T3min.append(np.min(boundary_t )-273.15)
+                T4min.append(np.min(boundary_b )-273.15)
+                T5min.append(np.min(boundary_ft)-273.15)
+                T6min.append(np.min(boundary_bk)-273.15)
+
+                # print(f'At t = {tf}:')
+                # print(f'Ein = {Ein}, TE = {TE}, Abs. E = {er}')
+                if i == len(self.output_files) - 1:
+                    print(f'Tmax={Tma}, Tmin={Tmi}, Tavg={Tav}')
+                # print(' ')
+                    print('mass', np.sum(self.rho*np.ones_like(comp_i) * self.dx**self.dim))
+                    print('volume',np.sum(np.ones_like(comp_i) * self.dx**self.dim))
+                    #print('m v (act)', self.rho*self.L**3, self.L**3)
+            plt.figure()
+            plt.plot(t, err, label='absolute error')
+            plt.plot(t, err, '.')
+            plt.xlabel('t')
+            plt.ylabel('abs error')
+            plt.legend()
+            plt.grid()
+            fig = os.path.join(self.output_dir, "comp.png")
+            plt.savefig(fig, dpi=300)
+            plt.close()
+
+            #plot temperature
+            plt.figure()
+            plt.plot(t, Tmax, '.', label=r'$T_{max}$')
+            #plt.plot(t, Tmax, '.')
+            plt.plot(t, Tmin, '.', label=r'$T_{min}$')
+            #plt.plot(t, Tmin, '.')
+            #plt.plot(t, Tavg, label=r'$T_{avg}$')
+            #plt.plot(t, Tavg, '.')
+            # file_data = np.loadtxt(fname='code/temp_500sec.txt', skiprows=1)
+            # T_a, Tmin_a, Tmax_a, Tavg_a = file_data[:,1], file_data[:,2], file_data[:,3], file_data[:,4]
+            # plt.plot(T_a, Tmin_a, '--')
+            # #plt.plot(t, Tmax, '.')
+            # plt.plot(T_a, Tmax_a, '--')
+            # #plt.plot(t, Tmin, '.')
+            # plt.plot(T_a, Tavg_a, '--')
+            plt.plot(t, T1max)
+            plt.plot(t, T2max)
+            plt.plot(t, T3max)
+            plt.plot(t, T4max)
+            plt.plot(t, T5max)
+            plt.plot(t, T6max)
+            plt.plot(t, T1min)
+            plt.plot(t, T2min)
+            plt.plot(t, T3min)
+            plt.plot(t, T4min)
+            plt.plot(t, T5min)
+            plt.plot(t, T6min)
+            
+            plt.xlabel('t')
+            plt.ylabel(r'Temperature (°C)')
+            plt.legend()
+            plt.grid()
+            fig = os.path.join(self.output_dir, "temp.png")
+            plt.savefig(fig, dpi=300)
+            plt.close()
 
             # plt.figure()
             # mask = ((x > 0.4) & (x < 0.4 + self.dx))
@@ -636,39 +523,39 @@ class CubeSatThermal(Application):
             # plt.savefig(fig, dpi=300)
             #plt.close()
             
-            #return x#, comp, exact
-
-        print('not this')
-        x = list(x)
-        comp = list(comp)
-        exact = list(exact)
-        x, comp, exact = list(map(np.asarray, (x, comp, exact)))
-
-        if self.dim == 3 and self.mms == 3:
-            _x = np.reshape(x, (self.options.n, self.options.n))
-            _comp = np.reshape(comp, (self.options.n, self.options.n))
-            _exact = np.reshape(exact, (self.options.n, self.options.n))
-            x_diag = np.diag(np.flip(_x))
-            str_tf = 't='+ str(tf)
-            plt.plot(x_diag, np.diag(np.flip(_comp)), label='Numerical'+ ' ' + str_tf)
-            plt.plot(x_diag, np.diag(np.flip(_exact)), label='Exact'+ ' ' + str_tf)
-            l2 = np.sum((exact - comp)**2)/len(comp)
-            print('at ' + str_tf + ' : ' + str(l2))
-
-        plt.xlabel('x')
-        plt.ylabel('T')
-        plt.legend()
-        plt.grid()
-        fig = os.path.join(self.output_dir, "comp.eps")
-        plt.savefig(fig, dpi=300)
-        plt.close()
-        # print('L2 norm: ', l2)
-        # print('L2 norm (Ansys): ', l2_a)
-        
         return x, comp, exact
+
+        # print('not this')
+        # x = list(x)
+        # comp = list(comp)
+        # exact = list(exact)
+        # x, comp, exact = list(map(np.asarray, (x, comp, exact)))
+
+        # if self.dim == 3 and self.mms == 3:
+        #     _x = np.reshape(x, (self.options.n, self.options.n))
+        #     _comp = np.reshape(comp, (self.options.n, self.options.n))
+        #     _exact = np.reshape(exact, (self.options.n, self.options.n))
+        #     x_diag = np.diag(np.flip(_x))
+        #     str_tf = 't='+ str(tf)
+        #     plt.plot(x_diag, np.diag(np.flip(_comp)), label='Numerical'+ ' ' + str_tf)
+        #     plt.plot(x_diag, np.diag(np.flip(_exact)), label='Exact'+ ' ' + str_tf)
+        #     l2 = np.sum((exact - comp)**2)/len(comp)
+        #     print('at ' + str_tf + ' : ' + str(l2))
+
+        # plt.xlabel('x')
+        # plt.ylabel('T')
+        # plt.legend()
+        # plt.grid()
+        # fig = os.path.join(self.output_dir, "comp.eps")
+        # plt.savefig(fig, dpi=300)
+        # plt.close()
+        # # print('L2 norm: ', l2)
+        # # print('L2 norm (Ansys): ', l2_a)
+        
+        # return x, comp, exact
 
 
 if __name__ == '__main__':
     app = CubeSatThermal()
-    app.run()
+    #app.run()
     app.post_process(app.info_filename)

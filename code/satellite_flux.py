@@ -70,7 +70,7 @@ class SatelliteFlux():
             
             x_orient = sat_dir_vec.km/sat_dir_vec.length().km
             
-            temp_vec_y = np.cross(np.cross(sat_velocity_vec, sat_dir_vec.km), x_orient)
+            temp_vec_y = np.cross(np.cross(sat_velocity_vec, earth_dir_vec.km), x_orient)
             y_orient = temp_vec_y/np.sqrt(np.dot(temp_vec_y,temp_vec_y))
             
             temp_vec_z = np.cross(x_orient, y_orient)
@@ -88,7 +88,7 @@ class SatelliteFlux():
             earth_dir_vec = sat_dir_vec
             sat_velocity_vec = sat_position_abs.velocity.km_per_s
             
-            x_orient = sat_dir_vec.km/sat_dir_vec.length.km
+            x_orient = sat_dir_vec.km/sat_dir_vec.length().km
             
             temp_vec_y = np.cross(np.cross(sat_velocity_vec, earth_dir_vec.km), x_orient)
             y_orient = temp_vec_y/np.sqrt(np.dot(temp_vec_y,temp_vec_y))
@@ -102,7 +102,7 @@ class SatelliteFlux():
             if sat_position.is_sunlit(self.planets):
                 sun_position = self.sun.at(t_req)
                 dir_vec = (sat_position_abs - sun_position).position
-                flux_vec[:] = dir_vec.km/dir_vec.length.km
+                flux_vec[:] = dir_vec.km/dir_vec.length().km
 
         return orient_vec, flux_vec
 
@@ -110,7 +110,6 @@ class SatelliteFlux():
         t_sec_idx = np.arange(0., tf, dt)
         t_sec_idx = np.append(t_sec_idx, tf)
         t = self.satellite.epoch
-        print(t_sec_idx[-1])
         fig, ax = plt.subplots()
         t_idx = self.ts.utc(year=t.utc.year, month=t.utc.month, day=t.utc.day, hour=t.utc.hour,
                 minute=t.utc.minute, second=t.utc.second + t_sec_idx)
@@ -120,7 +119,13 @@ class SatelliteFlux():
         ax.plot(t_sec_idx, dst, color='black')
         ax.fill_between(t_sec_idx, max(dst), min(dst), where=[not s for s in shadow],
                         color='green', alpha=0.5)#, transform=ax.get_xaxis_transform())
-        plt.show()
+        #ax.plot(t_sec_idx, np.ones_like(dst)*6371,'--', color='red')
+        plt.xlabel('t (sec.)')
+        plt.ylabel('Distance (km)')
+        plt.legend()
+        plt.grid()
+        #plt.show()
+        plt.savefig("orbit.png", dpi=300)
         plt.close()
         #print(shadow)
 # From a place on Earth (Topocentric)
@@ -129,5 +134,6 @@ class SatelliteFlux():
 # astrometric = boston.at(t).observe(mars)
 # apparent = boston.at(t).observe(mars).apparent()
 if __name__ == '__main__':
-    app = SatelliteFlux()
-    app._plot(1536)
+    #app = SatelliteFlux(epoch=2433282, no_kozai=0.07, ecco=0.02)
+    app = SatelliteFlux(epoch=2433282)
+    app._plot(20000, dt=60)
